@@ -35,6 +35,14 @@ function createListInterface() {
     addBtn.style.borderRadius = '0.5rem';
     addBtn.style.textDecoration = 'none';
     addBtn.style.backgroundColor = '#000000';
+    addBtn.onclick = function(e) {
+      var text = document.getElementsByTagName('input')[0].value;
+      var li = document.createElement('li');
+      var textNode = document.createTextNode(text);
+      li.appendChild(textNode);
+      var list = document.getElementsByTagName('ul')[0];
+      list.appendChild(li);
+    }
     interface.appendChild(addBtn);
   }
   createTextField();
