@@ -59,6 +59,9 @@ function createListInterface() {
         var sign = document.createElement('span');
         sign.style.color = 'green';
         sign.style.fontWeight = 'bold';
+        sign.style.fontSize = '2.25rem';
+        sign.style.position = 'relative';
+        sign.style.top= '-1rem';
 
         var textNode = document.createTextNode('✓');
         sign.appendChild(textNode);
