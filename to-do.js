@@ -2,11 +2,11 @@ function append(element) {
   var main = document.getElementsByTagName('main')[0];
   main.appendChild(element);
 }
-function createListInterface() {
+function dominoListInterface() {
   var interface = document.createElement('div');
   interface.style.display = 'flex';
 
-  function createTextField() {
+  function dominoTextField() {
     var textField = document.createElement('input');
     textField.style.type = 'text';
     textField.style.width = '45%';
@@ -19,7 +19,7 @@ function createListInterface() {
     interface.appendChild(textField);
   }
   // in congruence with domino flow
-  function createAddBtn() {
+  function dominoAddBtn() {
     var addBtn = document.createElement('div');
     let sign = document.createElement('div');
     sign.innerText = '+';
@@ -44,11 +44,12 @@ function createListInterface() {
       var textNode = document.createTextNode(text);
       var p = document.createElement('span');
       p.appendChild(textNode);
-      function createCheckBtn() {
+      function dominoCheckBtn() {
         var checkBtn = document.createElement('div');
 
         var checked = document.createElement('div');
         checked.id = "checked";
+        checked.style.position = 'relative';
         checked.style.backgroundColor = 'white';
         checked.style.border = '3px solid black';
         checked.style.borderRadius = '0.5rem';
@@ -60,12 +61,14 @@ function createListInterface() {
         sign.style.color = 'green';
         sign.style.fontWeight = 'bold';
         sign.style.fontSize = '2.25rem';
-        sign.style.position = 'relative';
+        sign.style.position = 'absolute';
+        sign.style.left = 'calc(50% - 0.75rem)'
         sign.style.top= '-1rem';
 
         var textNode = document.createTextNode('✓');
         sign.appendChild(textNode);
         checked.appendChild(sign);
+
 
         var unchecked = document.createElement('div');
         unchecked.id = "unchecked";
@@ -99,7 +102,7 @@ function createListInterface() {
         };
         return checkBtn;
       }
-      function createDelBtn() {
+      function dominoDelBtn() {
         var delBtn = document.createElement('div');
         delBtn.style.backgroundColor = 'black';
         delBtn.style.width = '1.5rem';
@@ -116,8 +119,8 @@ function createListInterface() {
         };
         return delBtn;
       }
-      var checkBtn = createCheckBtn();
-      var delBtn = createDelBtn();
+      var checkBtn = dominoCheckBtn();
+      var delBtn = dominoDelBtn();
       var btns = document.createElement('div');
       btns.style.display = 'flex';
       btns.appendChild(checkBtn);
@@ -130,28 +133,28 @@ function createListInterface() {
     }
     interface.appendChild(addBtn);
   }
-  createTextField();
-  createAddBtn();
+  dominoTextField();
+  dominoAddBtn();
   append(interface);
 }
 
-function createList() {
+function dominoList() {
   var list = document.createElement('ul');
   append(list);
 }
-function createItem() {
+function dominoItem() {
   var item = document.createElement('li');
   var input = document.getElementsByTagName('input')[0];
   var textNode = document.createTextNode(input.value);
   var span = document.createElement('span');
-  var delBtn = createDelBtn();
+  var delBtn = dominoDelBtn();
 
   span.appendChild(textNode);
   item.appendChild(span);
   item.appendChild(delBtn)
 }
 
-function createDelBtn() {
+function dominoDelBtn() {
   var delBtn = document.createElement('span');
   delBtn.innerText = 'x';
 
@@ -163,13 +166,13 @@ function createDelBtn() {
 
 window.addEventListener('keydown', function(e) { 
   if (e.code == 'Enter') {
-    createItem();
+    dominoItem();
   }
 });
 
 function aggregate() {
-  createListInterface();
-  createList();
+  dominoListInterface();
+  dominoList();
 }
 window.onload = function() {
   aggregate();
