@@ -34,12 +34,33 @@ function createListInterface() {
     addBtn.style.border = '6px solid #020202';
     addBtn.style.borderRadius = '0.5rem';
     addBtn.style.textDecoration = 'none';
-    addBtn.style.backgroundColor = '#000000';
+    addBtn.style.backgroundColor = 'black';
     addBtn.onclick = function(e) {
       var text = document.getElementsByTagName('input')[0].value;
       var li = document.createElement('li');
+      li.style.display = 'flex';
+      li.style.justifyContent = 'space-between';
+      li.style.width = '50%'; 
       var textNode = document.createTextNode(text);
-      li.appendChild(textNode);
+      var p = document.createElement('span');
+      p.appendChild(textNode);
+      var delBtn = document.createElement('div');
+      delBtn.style.backgroundColor = 'black';
+      delBtn.style.width = '1.5rem';
+      delBtn.style.height = '1.5rem';
+      delBtn.style.textAlign = 'center';
+      var sign = document.createElement('span');
+      sign.style.color = 'darkred';
+      var textNode = document.createTextNode('x');
+      sign.appendChild(textNode);
+      delBtn.appendChild(sign);
+      delBtn.onclick = function(e) {
+        var elClicked = e.target.parentNode.tagName;
+        elClicked === 'LI' ? e.target.parentNode.remove() : e.target.parentNode.parentNode.remove();
+
+      };
+      li.appendChild(p);
+      li.appendChild(delBtn);
       var list = document.getElementsByTagName('ul')[0];
       list.appendChild(li);
     }
