@@ -45,21 +45,50 @@ function createListInterface() {
       var p = document.createElement('span');
       p.appendChild(textNode);
       function createCheckBtn() {
-        var delBtn = document.createElement('div');
-        delBtn.style.backgroundColor = 'black';
-        delBtn.style.width = '1.5rem';
-        delBtn.style.height = '1.5rem';
-        delBtn.style.textAlign = 'center';
+        var checkBtn = document.createElement('div');
+
+        var checked = document.createElement('div');
+        checked.id = "checked";
+        checked.style.backgroundColor = 'black';
+        checked.style.width = '1.5rem';
+        checked.style.height = '1.5rem';
+        checked.style.textAlign = 'center';
+        checked.style.marginRight = '3rem';
         var sign = document.createElement('span');
-        sign.style.color = 'darkred';
-        var textNode = document.createTextNode('x');
+        sign.style.color = 'green';
+        var textNode = document.createTextNode('✓');
         sign.appendChild(textNode);
-        delBtn.appendChild(sign);
-        delBtn.onclick = function(e) {
-          var elClicked = e.target.parentNode.tagName;
-          elClicked === 'LI' ? e.target.parentNode.remove() : e.target.parentNode.parentNode.remove();
+        checked.appendChild(sign);
+
+        var unchecked = document.createElement('div');
+        unchecked.id = "unchecked";
+        unchecked.style.backgroundColor = 'black';
+        unchecked.style.width = '1.5rem';
+        unchecked.style.height = '1.5rem';
+        unchecked.style.textAlign = 'center';
+        unchecked.style.marginRight = '3rem';
+        var sign = document.createElement('span');
+        sign.style.color = 'white';
+        sign.style.fontWeight = 'bold';
+        var textNode = document.createTextNode('▢');
+        sign.appendChild(textNode);
+        unchecked.appendChild(sign);
+
+        checkBtn.appendChild(unchecked);
+        checkBtn.onclick = function(e) {
+          var elClicked = e.target;
+          var stateEl = elClicked.tagName === 'DIV' ? e.target : e.target.parentNode;
+          if (stateEl.id === 'unchecked') {
+            var checkBtn = stateEl.parentNode;
+            checkBtn.removeChild(unchecked);
+            checkBtn.appendChild(checked);
+          } else {
+            var checkBtn = stateEl.parentNode;
+            checkBtn.removeChild(checked);
+            checkBtn.appendChild(unchecked);
+          }
         };
-        return delBtn;
+        return checkBtn;
       }
       function createDelBtn() {
         var delBtn = document.createElement('div');
