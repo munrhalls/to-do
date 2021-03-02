@@ -49,20 +49,26 @@ function createListInterface() {
 
         var checked = document.createElement('div');
         checked.id = "checked";
-        checked.style.backgroundColor = 'black';
+        checked.style.backgroundColor = 'white';
+        checked.style.border = '3px solid black';
+        checked.style.borderRadius = '0.5rem';
         checked.style.width = '1.5rem';
         checked.style.height = '1.5rem';
         checked.style.textAlign = 'center';
         checked.style.marginRight = '3rem';
         var sign = document.createElement('span');
         sign.style.color = 'green';
+        sign.style.fontWeight = 'bold';
+
         var textNode = document.createTextNode('✓');
         sign.appendChild(textNode);
         checked.appendChild(sign);
 
         var unchecked = document.createElement('div');
         unchecked.id = "unchecked";
-        unchecked.style.backgroundColor = 'black';
+        unchecked.style.backgroundColor = 'white';
+        unchecked.style.border = '3px solid black';
+        unchecked.style.borderRadius = '0.5rem';
         unchecked.style.width = '1.5rem';
         unchecked.style.height = '1.5rem';
         unchecked.style.textAlign = 'center';
