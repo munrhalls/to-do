@@ -44,23 +44,49 @@ function createListInterface() {
       var textNode = document.createTextNode(text);
       var p = document.createElement('span');
       p.appendChild(textNode);
-      var delBtn = document.createElement('div');
-      delBtn.style.backgroundColor = 'black';
-      delBtn.style.width = '1.5rem';
-      delBtn.style.height = '1.5rem';
-      delBtn.style.textAlign = 'center';
-      var sign = document.createElement('span');
-      sign.style.color = 'darkred';
-      var textNode = document.createTextNode('x');
-      sign.appendChild(textNode);
-      delBtn.appendChild(sign);
-      delBtn.onclick = function(e) {
-        var elClicked = e.target.parentNode.tagName;
-        elClicked === 'LI' ? e.target.parentNode.remove() : e.target.parentNode.parentNode.remove();
-
-      };
+      function createCheckBtn() {
+        var delBtn = document.createElement('div');
+        delBtn.style.backgroundColor = 'black';
+        delBtn.style.width = '1.5rem';
+        delBtn.style.height = '1.5rem';
+        delBtn.style.textAlign = 'center';
+        var sign = document.createElement('span');
+        sign.style.color = 'darkred';
+        var textNode = document.createTextNode('x');
+        sign.appendChild(textNode);
+        delBtn.appendChild(sign);
+        delBtn.onclick = function(e) {
+          var elClicked = e.target.parentNode.tagName;
+          elClicked === 'LI' ? e.target.parentNode.remove() : e.target.parentNode.parentNode.remove();
+        };
+        return delBtn;
+      }
+      function createDelBtn() {
+        var delBtn = document.createElement('div');
+        delBtn.style.backgroundColor = 'black';
+        delBtn.style.width = '1.5rem';
+        delBtn.style.height = '1.5rem';
+        delBtn.style.textAlign = 'center';
+        var sign = document.createElement('span');
+        sign.style.color = 'darkred';
+        var textNode = document.createTextNode('x');
+        sign.appendChild(textNode);
+        delBtn.appendChild(sign);
+        delBtn.onclick = function(e) {
+          var elClicked = e.target.parentNode.tagName;
+          elClicked === 'LI' ? e.target.parentNode.remove() : e.target.parentNode.parentNode.remove();
+        };
+        return delBtn;
+      }
+      var checkBtn = createCheckBtn();
+      var delBtn = createDelBtn();
+      var btns = document.createElement('div');
+      btns.style.display = 'flex';
+      btns.appendChild(checkBtn);
+      btns.appendChild(delBtn);
       li.appendChild(p);
-      li.appendChild(delBtn);
+      li.appendChild(btns);
+
       var list = document.getElementsByTagName('ul')[0];
       list.appendChild(li);
     }
