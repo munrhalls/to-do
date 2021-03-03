@@ -46,7 +46,7 @@ function dominoListInterface() {
     addBtn.style.backgroundColor = 'black';
     addBtn.style.cursor = 'pointer';
     addBtn.onclick = function(e) {
-      dominoItem();
+      dominoAddItem();
       }
     interface.appendChild(addBtn);
   }
@@ -60,7 +60,7 @@ function dominoList() {
   list.style.paddingLeft = '0.75rem';
   append(list);
 }
-function dominoItem() {
+function dominoAddItem() {
   var text = document.getElementsByTagName('input')[0].value;
       var item = document.createElement('li');
       item.style.display = 'flex';
@@ -164,7 +164,7 @@ function dominoItem() {
 
 window.addEventListener('keydown', function(e) { 
   if (e.code == 'Enter') {
-    dominoItem();
+    dominoAddItem();
   }
 });
 
