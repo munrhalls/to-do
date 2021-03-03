@@ -88,16 +88,12 @@ function dominoListInterface() {
         checkBtn.appendChild(unchecked);
 
         checkBtn.onclick = function(e) {
-          var elClicked = e.target;
-          var stateEl = elClicked.tagName === 'DIV' ? e.target : e.target.parentNode;
-          if (stateEl.id === 'unchecked') {
-            var checkBtn = stateEl.parentNode;
-            checkBtn.removeChild(unchecked);
-            checkBtn.appendChild(checked);
+          if (this.children[0].id === 'unchecked') {
+            this.removeChild(unchecked);
+            this.appendChild(checked);
           } else {
-            var checkBtn = stateEl.parentNode;
-            checkBtn.removeChild(checked);
-            checkBtn.appendChild(unchecked);
+            this.removeChild(checked);
+            this.appendChild(unchecked);
           }
         };
         return checkBtn;
@@ -114,8 +110,8 @@ function dominoListInterface() {
         sign.appendChild(textNode);
         delBtn.appendChild(sign);
         delBtn.onclick = function(e) {
-          var elClicked = e.target.parentNode.tagName;
-          elClicked === 'LI' ? e.target.parentNode.remove() : e.target.parentNode.parentNode.remove();
+          var elClicked = e.currentTarget .parentNode.tagName;
+          elClicked === 'LI' ? e.currentTarget .parentNode.remove() : e.currentTarget .parentNode.parentNode.remove();
         };
         return delBtn;
       }
