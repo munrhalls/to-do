@@ -36,6 +36,7 @@ function dominoListInterface() {
     addBtn.style.borderRadius = '0.5rem';
     addBtn.style.textDecoration = 'none';
     addBtn.style.backgroundColor = 'black';
+    addBtn.style.cursor = 'pointer';
     addBtn.onclick = function(e) {
       var text = document.getElementsByTagName('input')[0].value;
       var li = document.createElement('li');
@@ -157,16 +158,6 @@ function dominoItem() {
   span.appendChild(textNode);
   item.appendChild(span);
   item.appendChild(delBtn)
-}
-
-function dominoDelBtn() {
-  var delBtn = document.createElement('span');
-  delBtn.innerText = 'x';
-
-  delBtn.onclick = function(e) {
-    console.log('x')
-  }
-  return delBtn;
 }
 
 window.addEventListener('keydown', function(e) { 
