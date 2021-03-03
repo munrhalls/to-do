@@ -46,7 +46,22 @@ function dominoListInterface() {
     addBtn.style.backgroundColor = 'black';
     addBtn.style.cursor = 'pointer';
     addBtn.onclick = function(e) {
-      var text = document.getElementsByTagName('input')[0].value;
+      dominoItem();
+      }
+    interface.appendChild(addBtn);
+  }
+  dominoTextField();
+  dominoAddBtn();
+  append(interface);
+}
+
+function dominoList() {
+  var list = document.createElement('ul');
+  list.style.paddingLeft = '0.75rem';
+  append(list);
+}
+function dominoItem() {
+  var text = document.getElementsByTagName('input')[0].value;
       var item = document.createElement('li');
       item.style.display = 'flex';
       item.style.justifyContent = 'space-between';
@@ -142,32 +157,9 @@ function dominoListInterface() {
       btns.appendChild(delBtn);
       item.appendChild(p);
       item.appendChild(btns);
-
       var list = document.getElementsByTagName('ul')[0];
       list.appendChild(item);
-    }
-    interface.appendChild(addBtn);
-  }
-  dominoTextField();
-  dominoAddBtn();
-  append(interface);
-}
-
-function dominoList() {
-  var list = document.createElement('ul');
-  list.style.paddingLeft = '0.75rem';
-  append(list);
-}
-function dominoItem() {
-  var item = document.createElement('li');
-  var input = document.getElementsByTagName('input')[0];
-  var textNode = document.createTextNode(input.value);
-  var span = document.createElement('span');
-  var delBtn = dominoDelBtn();
-
-  span.appendChild(textNode);
-  item.appendChild(span);
-  item.appendChild(delBtn)
+    
 }
 
 window.addEventListener('keydown', function(e) { 
