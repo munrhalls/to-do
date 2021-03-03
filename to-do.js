@@ -40,7 +40,8 @@ function dominoListInterface() {
       var li = document.createElement('li');
       li.style.display = 'flex';
       li.style.justifyContent = 'space-between';
-      li.style.width = '50%'; 
+      li.style.width = '50%';
+      li.style.paddingTop = '1rem';
       var textNode = document.createTextNode(text);
       var p = document.createElement('span');
       p.appendChild(textNode);
@@ -64,11 +65,9 @@ function dominoListInterface() {
         sign.style.position = 'absolute';
         sign.style.left = 'calc(50% - 0.75rem)'
         sign.style.top= '-1rem';
-
         var textNode = document.createTextNode('✓');
         sign.appendChild(textNode);
         checked.appendChild(sign);
-
 
         var unchecked = document.createElement('div');
         unchecked.id = "unchecked";
@@ -87,6 +86,7 @@ function dominoListInterface() {
         unchecked.appendChild(sign);
 
         checkBtn.appendChild(unchecked);
+
         checkBtn.onclick = function(e) {
           var elClicked = e.target;
           var stateEl = elClicked.tagName === 'DIV' ? e.target : e.target.parentNode;
@@ -144,6 +144,8 @@ function dominoList() {
 }
 function dominoItem() {
   var item = document.createElement('li');
+  item.style.paddingTop = '10rem';
+
   var input = document.getElementsByTagName('input')[0];
   var textNode = document.createTextNode(input.value);
   var span = document.createElement('span');
