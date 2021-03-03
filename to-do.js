@@ -2,6 +2,14 @@ function append(element) {
   var main = document.getElementsByTagName('main')[0];
   main.appendChild(element);
 }
+function dominoTitle() {
+  var title = document.createElement('div');
+  var text = document.createTextNode('TO-DO LIST');
+  title.appendChild(text);
+  title.style.fontSize = '4rem';
+  title.style.paddingBottom = '2rem';
+  append(title)
+}
 function dominoListInterface() {
   var interface = document.createElement('div');
   interface.style.display = 'flex';
@@ -39,11 +47,11 @@ function dominoListInterface() {
     addBtn.style.cursor = 'pointer';
     addBtn.onclick = function(e) {
       var text = document.getElementsByTagName('input')[0].value;
-      var li = document.createElement('li');
-      li.style.display = 'flex';
-      li.style.justifyContent = 'space-between';
-      li.style.width = '50%';
-      li.style.paddingTop = '1rem';
+      var item = document.createElement('li');
+      item.style.display = 'flex';
+      item.style.justifyContent = 'space-between';
+      item.style.width = '50%';
+      item.style.paddingTop = '1rem';
       var textNode = document.createTextNode(text);
       var p = document.createElement('span');
       p.appendChild(textNode);
@@ -129,11 +137,11 @@ function dominoListInterface() {
       btns.style.display = 'flex';
       btns.appendChild(checkBtn);
       btns.appendChild(delBtn);
-      li.appendChild(p);
-      li.appendChild(btns);
+      item.appendChild(p);
+      item.appendChild(btns);
 
       var list = document.getElementsByTagName('ul')[0];
-      list.appendChild(li);
+      list.appendChild(item);
     }
     interface.appendChild(addBtn);
   }
@@ -148,8 +156,6 @@ function dominoList() {
 }
 function dominoItem() {
   var item = document.createElement('li');
-  item.style.paddingTop = '10rem';
-
   var input = document.getElementsByTagName('input')[0];
   var textNode = document.createTextNode(input.value);
   var span = document.createElement('span');
@@ -167,6 +173,7 @@ window.addEventListener('keydown', function(e) {
 });
 
 function aggregate() {
+  dominoTitle();
   dominoListInterface();
   dominoList();
 }
