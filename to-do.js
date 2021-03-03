@@ -101,11 +101,15 @@ function dominoListInterface() {
       function dominoDelBtn() {
         var delBtn = document.createElement('div');
         delBtn.style.backgroundColor = 'black';
-        delBtn.style.width = '1.5rem';
+        delBtn.style.width = '2.5rem';
         delBtn.style.height = '1.5rem';
         delBtn.style.textAlign = 'center';
+        delBtn.style.paddingBottom= '0.5rem';
+        delBtn.style.cursor = 'pointer';
         var sign = document.createElement('span');
         sign.style.color = 'darkred';
+        sign.style.fontWeight = 'bold';
+        sign.style.fontSize = '1.5rem';
         var textNode = document.createTextNode('x');
         sign.appendChild(textNode);
         delBtn.appendChild(sign);
