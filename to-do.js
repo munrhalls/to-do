@@ -52,6 +52,9 @@ function dominoListInterface() {
       item.style.justifyContent = 'space-between';
       item.style.width = '50%';
       item.style.paddingTop = '1rem';
+      item.style.fontSize = '1.25rem';
+      item.style.fontWeight = 'bold';
+
       var textNode = document.createTextNode(text);
       var p = document.createElement('span');
       p.appendChild(textNode);
@@ -152,6 +155,7 @@ function dominoListInterface() {
 
 function dominoList() {
   var list = document.createElement('ul');
+  list.style.paddingLeft = '0.75rem';
   append(list);
 }
 function dominoItem() {
